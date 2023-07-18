@@ -1,0 +1,32 @@
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block content %}
+{% include "header.html" %}
+
+  <!-- Page Header -->
+  <header class="masthead" style="background-image: url('https://kitchenhousecoffee.com/wp-content/uploads/2023/06/cappuccino-art.jpg')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="page-heading">
+            <h1 style="color:#3F2305;">Register</h1>
+            <span class="subheading" style="color:#3F2305;">Start Contributing to the Café Database!</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+
+       {{ wtf.quick_form(form, novalidate=True, button_map={"submit": "dark"}) }}
+
+      </div>
+    </div>
+  </div>
+
+{% include "footer.html" %}
+{% endblock %}

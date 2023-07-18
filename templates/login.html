@@ -1,0 +1,39 @@
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block content %}
+{% include "header.html" %}
+
+  <!-- Page Header -->
+  <header class="masthead" style="background-image: url('https://www.illy.com/content/dam/channels/website/consumer/global/coffee/preparation/cappuccino/how_to_cappuccino_cup_desktop_tablet.jpg')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="page-heading">
+            <h1 style="color:#3F2305;">Log In</h1>
+            <span class="subheading" style="color:#3F2305;">Welcome Back!</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="row">
+
+      <div class="col-lg-8 col-md-10 mx-auto content">
+                {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            {% for message in messages %}
+            <p style="color:#3F2305;">{{message}}</p>
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
+        {{ wtf.quick_form(form, novalidate=True, button_map={"submit": "dark"}) }}
+      </div>
+    </div>
+  </div>
+
+
+{% include "footer.html" %}
+{% endblock %}
